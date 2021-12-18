@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="application.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins&display=swap"
+    rel="stylesheet">
+  <title>application</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <form action="#">
+      <div class="user_details">
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="first_name" type="text" placeholder="first name" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="last_name" type="text" placeholder="last name" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="country_code" type="number" placeholder="country code" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="phone_number" type="number" placeholder="phone number" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="country" type="text" placeholder="country" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="state_code" type="text" placeholder="state code" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="local" type="text" placeholder="local" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="zip_code" type="text" placeholder="zip code" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="street_address" type="text" placeholder="street address" required>
+        </div>
+        <div class="input-box">
+          <span class="details"></span>
+          <input id="input" class="extended_street_address" type="text" placeholder="extended street address" required>
+        </div>
+
+
+        <button id="lol" class="button" onclick="
+          $.ajax({
+            url:'/create/student',
+            type:'POST',
+            data:JSON.stringify({
+            first_name:document.getElementsByClassName('first_name')[0].value,
+            last_name:document.getElementsByClassName('last_name')[0].value,
+            country_code:document.getElementsByClassName('country_code')[0].value,
+            country:document.getElementsByClassName('country')[0].value,
+            street_address:document.getElementsByClassName('street_address')[0].value,
+            extended_street_address:document.getElementsByClassName('extended_street_address')[0].value,
+            state_code:document.getElementsByClassName('state_code')[0].value,
+            local:document.getElementsByClassName('local')[0].value,
+            phone_number:document.getElementsByClassName('phone_number')[0].value,
+            zip_code:document.getElementsByClassName('zip_code')[0].value,
+          }),
+          contentType:'application/json; charset=utf-8',
+          success:function(data, status){
+            alert(data.res) 
+            // data=res+message message have all the user data ,res 
+          }}
+          )
+        ">Register</button>
+
+    </form>
+  </div>
+</body>
+
+</html>
